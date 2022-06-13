@@ -1,0 +1,17 @@
+{
+  "name": "jwt-authenticated-api",
+  "version": "1.0.0",
+  "description": "An API with JWT Authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "keywords": [
+    "API",
+    "JWT",
+    "MongoDB"
+  ],
+  "author": "Dare Goodness",
+  "license": "ISC"
+}
