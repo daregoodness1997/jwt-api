@@ -1,4 +1,10 @@
 const login = async (req, res) => {
+  const { username, password } = req.body;
+  console.log(username, password);
+  //   check in controller
+  if (!username || !password) {
+  }
+
   res.send('Fake Login/Register/Signup');
 };
 

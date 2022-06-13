@@ -4,6 +4,9 @@ require('express-async-errors');
 const express = require('express');
 const app = express();
 const mainRouter = require('./routes/main');
+const bodyParser = require('body-parser');
+// parse application/json
+app.use(bodyParser.json());
 
 app.use('/api/v1', mainRouter);
 
