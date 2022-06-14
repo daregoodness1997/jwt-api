@@ -1,6 +1,7 @@
 // import jwt token
 const jwt = require('jsonwebtoken');
-const CustomAPIError = require('../errors/custom-error');
+const { BadRequest } = require('../errors');
+
 const login = async (req, res) => {
   const { username, password } = req.body;
   console.log(username, password);
@@ -8,7 +9,7 @@ const login = async (req, res) => {
   // joi
   //   check in controller
   if (!username || !password) {
-    throw new CustomAPIError('Please provide username and password', 400);
+    throw new BadRequest('Please provide username and password', 400);
   }
 
   // This is a Demo ID
