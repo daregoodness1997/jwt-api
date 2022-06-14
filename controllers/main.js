@@ -8,7 +8,7 @@ const login = async (req, res) => {
   // joi
   //   check in controller
   if (!username || !password) {
-    throw new CustomAPIError('Please provide email and password', 400);
+    throw new CustomAPIError('Please provide username and password', 400);
   }
 
   // This is a Demo ID
@@ -22,17 +22,10 @@ const login = async (req, res) => {
 };
 
 const dashboard = async (req, res) => {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    throw new CustomAPIError('No token provided', 401);
-  }
-
-  const token = authHeader.split(' ')[1];
-  console.log(token);
-  const luckyNumber = Math.floor(Math.random() * 10);
+  console.log(req.user);
+  const luckyNumber = Math.floor(Math.random() * 100);
   res.status(200).json({
-    msg: `Hello, John Doe`,
+    msg: `Hello, ${req.user.username}`,
     secret: `Here is your authorized data, your lucky number is ${luckyNumber} `,
   });
 };
